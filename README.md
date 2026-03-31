@@ -25,7 +25,10 @@ WebDataMining/
 ├── kg_artifacts/
 │   ├── initial_kb.ttl            <- initial RDF graph from Lab 1 NER
 │   ├── expanded_kb.rdf           <- full expanded KB, Turtle format (~52k triples)
+│   ├── expanded_kb.nt            <- N-Triples serialisation of the expanded KB
 │   ├── alignment.ttl             <- predicate alignment (Wikidata -> schema.org/foaf)
+│   ├── ontology.ttl              <- OWL ontology for the electromagnetism domain
+│   ├── kb_stats.txt              <- KB statistics (triple/entity counts, splits)
 │   └── family.owl                <- OWL ontology for SWRL reasoning (Lab 5)
 ├── kge_data/
 │   ├── train.txt                 <- 80% training split
@@ -98,15 +101,13 @@ Open `notebooks/Lab5_Reasoning_KGE.ipynb` and run all cells (requires Lab 4 outp
 #### Interactive CLI
 
 ```bash
-cd rag
-python lab_rag_sparql_gen.py --model gemma:2b
+python rag/lab_rag_sparql_gen.py --model gemma:2b
 ```
 
 #### Run evaluation table (5 questions, baseline vs RAG)
 
 ```bash
-cd rag
-python lab_rag_sparql_gen.py --model gemma:2b --eval
+python rag/lab_rag_sparql_gen.py --model gemma:2b --eval
 ```
 
 #### Notebook
@@ -171,7 +172,10 @@ KGE training time on CPU: ~10-30 min/model at 500 epochs.
 |------|-------------|
 | `kg_artifacts/initial_kb.ttl` | Initial RDF graph from Lab 1 NER (~text triples) |
 | `kg_artifacts/expanded_kb.rdf` | Full expanded KB, Turtle format (~52k triples) |
+| `kg_artifacts/expanded_kb.nt` | N-Triples serialisation of the expanded KB |
 | `kg_artifacts/alignment.ttl` | Predicate alignment: Wikidata properties to schema.org/foaf |
+| `kg_artifacts/ontology.ttl` | OWL ontology for the electromagnetism domain |
+| `kg_artifacts/kb_stats.txt` | KB statistics: triple/entity counts, train/valid/test splits |
 | `kg_artifacts/family.owl` | OWL ontology for SWRL demo (Lab 5) |
 | `kge_data/train.txt` | KGE training triples (80%) |
 | `kge_data/valid.txt` | KGE validation triples (10%) |
