@@ -1,5 +1,10 @@
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
 # Web crawling & text extraction
 trafilatura>=1.6.0
+httpx>=0.24.0
 
 # NLP & NER
 spacy>=3.7.0
