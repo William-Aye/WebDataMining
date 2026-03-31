@@ -1,0 +1,44 @@
+private_predicate,wikidata_property,label
+monte,http://www.wikidata.org/entity/P1360,Monte Carlo Particle Number
+monte,http://www.wikidata.org/entity/P10005,Remontees-mecaniques.net ID
+donne,http://www.wikidata.org/entity/P6488,Enciclopedia delle donne ID
+Date,http://www.wikidata.org/entity/P619,UTC date of spacecraft launch
+Date,http://www.wikidata.org/entity/P620,UTC date of spacecraft landing
+Date,http://www.wikidata.org/entity/P622,spacecraft docking/undocking date
+Date,http://www.wikidata.org/entity/P569,date of birth
+Date,http://www.wikidata.org/entity/P570,date of death
+Date,http://www.wikidata.org/entity/P576,"dissolved, abolished or demolished date"
+Date,http://www.wikidata.org/entity/P711,"Strunz 8th edition (series ID, updated)"
+Date,http://www.wikidata.org/entity/P577,publication date
+Date,http://www.wikidata.org/entity/P712,Nickel-Strunz 9th edition (updated 2009)
+Date,http://www.wikidata.org/entity/P713,"Nickel-Strunz '10th ed', review of (9th ed/ 2009 update)"
+Date,http://www.wikidata.org/entity/P726,candidate
+Date,http://www.wikidata.org/entity/P746,date of disappearance
+Date,http://www.wikidata.org/entity/P4241,refine date
+Date,http://www.wikidata.org/entity/P4243,candidate number
+Date,http://www.wikidata.org/entity/P5204,commercialization date
+Date,http://www.wikidata.org/entity/P991,successful candidate
+Date,http://www.wikidata.org/entity/P4387,update method
+Date,http://www.wikidata.org/entity/P4424,mandates
+Date,http://www.wikidata.org/entity/P3344,Vote Smart candidate ID
+Date,http://www.wikidata.org/entity/P2285,periapsis date (DEPRECATED)
+aller,http://www.wikidata.org/entity/P4177,Finnish National Gallery artist ID
+aller,http://www.wikidata.org/entity/P2041,National Gallery of Victoria artist ID
+aller,http://www.wikidata.org/entity/P4460,Kaitai Struct format gallery ID
+aller,http://www.wikidata.org/entity/P5210,National Gallery of Armenia work ID
+aller,http://www.wikidata.org/entity/P935,Commons gallery
+aller,http://www.wikidata.org/entity/P3372,Auckland Art Gallery artist ID
+aller,http://www.wikidata.org/entity/P5368,National Gallery of Canada artist ID
+aller,http://www.wikidata.org/entity/P2252,National Gallery of Art artist ID
+aller,http://www.wikidata.org/entity/P4683,National Gallery of Art artwork ID
+aller,http://www.wikidata.org/entity/P4684,National Gallery of Victoria artwork ID
+aller,http://www.wikidata.org/entity/P6319,Italian Footballers' Association player ID
+aller,http://www.wikidata.org/entity/P6152,National Portrait Gallery (United States) object ID
+aller,http://www.wikidata.org/entity/P8548,Proballers ID
+aller,http://www.wikidata.org/entity/P8583,Yale University Art Gallery ID
+aller,http://www.wikidata.org/entity/P6804,Art Gallery of South Australia creator ID
+aller,http://www.wikidata.org/entity/P6805,Art Gallery of South Australia work ID
+aller,http://www.wikidata.org/entity/P8906,National Gallery of Ireland ID
+aller,http://www.wikidata.org/entity/P8907,Auckland Art Gallery artwork ID
+aller,http://www.wikidata.org/entity/P8909,National Gallery of Australia ID
+aller,http://www.wikidata.org/entity/P9301,National Gallery of Art Library Bibliographic ID

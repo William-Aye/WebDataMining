@@ -1,0 +1,29 @@
+# Web crawling & text extraction
+trafilatura>=1.6.0
+
+# NLP & NER
+spacy>=3.7.0
+# After install: python -m spacy download en_core_web_trf
+
+# RDF / Knowledge Graph
+rdflib>=7.0.0
+networkx>=3.0
+
+# Knowledge Graph Embeddings
+pykeen>=1.10.0
+torch>=2.0.0
+
+# OWL / SWRL reasoning
+owlready2>=0.46
+
+# Data & ML utilities
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+
+# RAG / LLM integration
+requests>=2.31.0
+
+# SPARQL queries (Wikidata expansion)
+tqdm>=4.65.0

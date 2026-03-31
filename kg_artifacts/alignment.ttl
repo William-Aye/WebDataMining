@@ -1,0 +1,118 @@
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wdt:    <http://www.wikidata.org/prop/direct/> .
+@prefix wd:     <http://www.wikidata.org/entity/> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms:<http://purl.org/dc/terms/> .
+@prefix ex:     <http://example.org/inferred/> .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Predicate Alignment
+# Maps Wikidata direct properties (wdt:Pxxx) to standard vocabulary predicates.
+# Produced by Lab 4 — KB Construction & Expansion (Aharouni Refael, Aye William).
+# ─────────────────────────────────────────────────────────────────────────────
+
+# wdt:P31  instance of  →  rdf:type
+wdt:P31
+    a               owl:ObjectProperty ;
+    rdfs:label      "instance of" ;
+    owl:equivalentProperty rdf:type ;
+    skos:exactMatch schema:additionalType .
+
+# wdt:P279  subclass of  →  rdfs:subClassOf
+wdt:P279
+    a               owl:ObjectProperty ;
+    rdfs:label      "subclass of" ;
+    owl:equivalentProperty rdfs:subClassOf .
+
+# wdt:P106  occupation  →  schema:hasOccupation
+wdt:P106
+    a               owl:ObjectProperty ;
+    rdfs:label      "occupation" ;
+    skos:exactMatch schema:hasOccupation .
+
+# wdt:P19  place of birth  →  schema:birthPlace
+wdt:P19
+    a               owl:ObjectProperty ;
+    rdfs:label      "place of birth" ;
+    skos:exactMatch schema:birthPlace .
+
+# wdt:P69  educated at  →  schema:alumniOf
+wdt:P69
+    a               owl:ObjectProperty ;
+    rdfs:label      "educated at" ;
+    skos:exactMatch schema:alumniOf .
+
+# wdt:P17  country  →  schema:addressCountry
+wdt:P17
+    a               owl:ObjectProperty ;
+    rdfs:label      "country" ;
+    skos:exactMatch schema:addressCountry .
+
+# wdt:P131  located in administrative territorial entity  →  schema:containedInPlace
+wdt:P131
+    a               owl:ObjectProperty ;
+    rdfs:label      "located in administrative territorial entity" ;
+    skos:exactMatch schema:containedInPlace .
+
+# wdt:P166  award received  →  schema:award
+wdt:P166
+    a               owl:ObjectProperty ;
+    rdfs:label      "award received" ;
+    skos:exactMatch schema:award .
+
+# wdt:P27  country of citizenship  →  schema:nationality
+wdt:P27
+    a               owl:ObjectProperty ;
+    rdfs:label      "country of citizenship" ;
+    skos:exactMatch schema:nationality .
+
+# wdt:P21  sex or gender  →  schema:gender
+wdt:P21
+    a               owl:ObjectProperty ;
+    rdfs:label      "sex or gender" ;
+    skos:exactMatch schema:gender .
+
+# wdt:P800  notable work  →  schema:workExample
+wdt:P800
+    a               owl:ObjectProperty ;
+    rdfs:label      "notable work" ;
+    skos:exactMatch schema:workExample .
+
+# wdt:P108  employer  →  schema:worksFor
+wdt:P108
+    a               owl:ObjectProperty ;
+    rdfs:label      "employer" ;
+    skos:exactMatch schema:worksFor .
+
+# wdt:P1412  languages spoken, written or signed  →  schema:knowsLanguage
+wdt:P1412
+    a               owl:ObjectProperty ;
+    rdfs:label      "languages spoken, written or signed" ;
+    skos:exactMatch schema:knowsLanguage .
+
+# wdt:P361  part of  →  schema:isPartOf
+wdt:P361
+    a               owl:ObjectProperty ;
+    rdfs:label      "part of" ;
+    skos:exactMatch schema:isPartOf .
+
+# wdt:P527  has part  →  schema:hasPart
+wdt:P527
+    a               owl:ObjectProperty ;
+    rdfs:label      "has part" ;
+    skos:exactMatch schema:hasPart .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Inferred class alignment (Lab 5 SWRL-equivalent rule)
+# ex:isAwardedScientist is a custom class inferred via SPARQL CONSTRUCT
+# ─────────────────────────────────────────────────────────────────────────────
+
+ex:isAwardedScientist
+    a               owl:Class ;
+    rdfs:label      "Awarded Scientist" ;
+    rdfs:comment    "Person with occupation=scientist (wd:Q901) who has received at least one award. Inferred via SPARQL CONSTRUCT (SWRL-equivalent rule)." ;
+    rdfs:subClassOf foaf:Person .

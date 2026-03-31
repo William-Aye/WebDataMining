@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Large data files (provide download link instead)
+*.nt
+*.ttl
+
+# Keep RDF/Turtle KB artifacts
+!kg_artifacts/*.rdf
+!kg_artifacts/*.ttl
+!kg_artifacts/*.owl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Practice labs and non-project files - do not push
+_other/
+TD1/
+TD2/
+TD3/
+TD4/
+TD5/
+TD6/
+
+# Large files
+kg_artifacts/*.nt
+
+# Helper scripts
+reorganise.py
+finish.py
