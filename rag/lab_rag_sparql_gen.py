@@ -18,7 +18,7 @@ import requests
 # ----------------------------
 # Configuration
 # ----------------------------
-RDF_FILE = "../kg_artifacts/expanded_kb.rdf"       # path to our Wikidata KB (Turtle)
+RDF_FILE = "./kg_artifacts/expanded_kb.rdf"       # path to our Wikidata KB (Turtle)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 DEFAULT_MODEL = "gemma:2b"                 # change if you pulled another model
 MAX_PREDICATES = 80
