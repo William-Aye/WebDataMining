@@ -1,0 +1,66 @@
+Electromagnetism Knowledge Graph — Statistics
+==============================================
+
+Source
+------
+Domain         : Electromagnetism (physicists, laws, awards, institutions)
+Seed entities  : Wikidata SPARQL expansion from ~30 seed scientists
+Expansion depth: 2 hops (scientist → institution/award/country)
+
+Graph Size
+----------
+Total triples  : 52,901
+Unique subjects: 5,300
+Unique relations: 15
+Unique objects (URI): 1,790
+Unique entities (subjects ∪ URI objects): 7,054
+
+Key Relations (Wikidata predicates)
+------------------------------------
+wdt:P31   (instance of)
+wdt:P106  (occupation)
+wdt:P19   (place of birth)
+wdt:P569  (date of birth)
+wdt:P570  (date of death)
+wdt:P27   (country of citizenship)
+wdt:P69   (educated at)
+wdt:P108  (employer)
+wdt:P166  (award received)
+wdt:P800  (notable work)
+rdfs:label
+schema:description
+wdt:P18   (image)
+wdt:P21   (sex or gender)
+wdt:P735  (given name)
+
+KGE Train / Validation / Test Split (80 / 10 / 10)
+----------------------------------------------------
+Training set   : 42,320 triples
+Validation set :  5,290 triples
+Test set       :  5,291 triples
+
+KGE Models Evaluated
+---------------------
+TransE   — translational model (Bordes et al., 2013); embedding_dim=128
+DistMult — bilinear model (Yang et al., 2015); embedding_dim=128
+RotatE   — rotation in complex space (Sun et al., 2019); embedding_dim=128
+
+Common hyperparameters: num_epochs=500, batch_size=512, lr=0.01, optimizer=Adam
+
+Ontology
+--------
+File           : kg_artifacts/ontology.ttl
+Classes        : 7 (Scientist, Physicist, Mathematician, PhysicalConcept,
+                    PhysicalLaw, ResearchInstitution, AwardedScientist)
+Object props   : 7 (hasOccupation, bornIn, educatedAt, receivedAward,
+                    citizenOf, employedBy, notableWork)
+SWRL rule      : AwardedScientist inference (scientist + award → AwardedScientist)
+
+Files
+-----
+kg_artifacts/initial_kb.ttl      — initial KB from NER crawl (Lab 1–2)
+kg_artifacts/alignment.ttl       — SKOS/OWL alignment mappings (Lab 3)
+kg_artifacts/expanded_kb.rdf     — full expanded KB in Turtle/RDF (Lab 4)
+kg_artifacts/expanded_kb.nt      — N-Triples serialisation (for KGE loading)
+kg_artifacts/ontology.ttl        — OWL ontology (Lab 3 / Lab 5)
+kg_artifacts/family.owl          — family ontology for SWRL warm-up (Lab 5)

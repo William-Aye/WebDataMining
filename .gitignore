@@ -49,8 +49,8 @@ TD4/
 TD5/
 TD6/
 
-# Large files
-kg_artifacts/*.nt
+# Keep expanded KB in NT format too
+!kg_artifacts/expanded_kb.nt
 
 # Helper scripts
 reorganise.py

@@ -1,0 +1,117 @@
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix wd:     <http://www.wikidata.org/entity/> .
+@prefix wdt:    <http://www.wikidata.org/prop/direct/> .
+@prefix ex:     <http://example.org/electromagnetism/> .
+
+# ---------------------------------------------------------------
+# Ontology Declaration
+# ---------------------------------------------------------------
+
+ex:ElectromagnetismOntology a owl:Ontology ;
+    rdfs:label "Electromagnetism Knowledge Graph Ontology"@en ;
+    rdfs:comment "OWL ontology for the electromagnetism domain KB built from Wikidata."@en ;
+    owl:versionInfo "1.0" .
+
+# ---------------------------------------------------------------
+# Classes
+# ---------------------------------------------------------------
+
+ex:Scientist a owl:Class ;
+    rdfs:label "Scientist"@en ;
+    rdfs:comment "A person who conducts scientific research."@en ;
+    rdfs:subClassOf foaf:Person ;
+    owl:equivalentClass wd:Q901 .
+
+ex:Physicist a owl:Class ;
+    rdfs:label "Physicist"@en ;
+    rdfs:comment "A scientist specialising in physics."@en ;
+    rdfs:subClassOf ex:Scientist ;
+    owl:equivalentClass wd:Q170790 .
+
+ex:Mathematician a owl:Class ;
+    rdfs:label "Mathematician"@en ;
+    rdfs:subClassOf ex:Scientist ;
+    owl:equivalentClass wd:Q170794 .
+
+ex:PhysicalConcept a owl:Class ;
+    rdfs:label "Physical Concept"@en ;
+    rdfs:comment "An abstract concept or phenomenon in physics."@en .
+
+ex:PhysicalLaw a owl:Class ;
+    rdfs:label "Physical Law"@en ;
+    rdfs:subClassOf ex:PhysicalConcept ;
+    rdfs:comment "A law or equation describing a physical phenomenon."@en .
+
+ex:ResearchInstitution a owl:Class ;
+    rdfs:label "Research Institution"@en ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:comment "A university, society or organisation conducting scientific research."@en .
+
+ex:AwardedScientist a owl:Class ;
+    rdfs:label "Awarded Scientist"@en ;
+    rdfs:comment "A scientist who has received at least one formal award. Inferred by SWRL rule."@en ;
+    rdfs:subClassOf ex:Scientist .
+
+# ---------------------------------------------------------------
+# Object Properties
+# ---------------------------------------------------------------
+
+ex:hasOccupation a owl:ObjectProperty ;
+    rdfs:label "has occupation"@en ;
+    rdfs:domain foaf:Person ;
+    owl:equivalentProperty wdt:P106 ;
+    owl:equivalentProperty schema:hasOccupation .
+
+ex:bornIn a owl:ObjectProperty ;
+    rdfs:label "born in"@en ;
+    rdfs:domain foaf:Person ;
+    owl:equivalentProperty wdt:P19 ;
+    owl:equivalentProperty schema:birthPlace .
+
+ex:educatedAt a owl:ObjectProperty ;
+    rdfs:label "educated at"@en ;
+    rdfs:domain foaf:Person ;
+    rdfs:range ex:ResearchInstitution ;
+    owl:equivalentProperty wdt:P69 ;
+    owl:equivalentProperty schema:alumniOf .
+
+ex:receivedAward a owl:ObjectProperty ;
+    rdfs:label "received award"@en ;
+    rdfs:domain foaf:Person ;
+    owl:equivalentProperty wdt:P166 ;
+    owl:equivalentProperty schema:award .
+
+ex:citizenOf a owl:ObjectProperty ;
+    rdfs:label "citizen of"@en ;
+    rdfs:domain foaf:Person ;
+    owl:equivalentProperty wdt:P27 ;
+    owl:equivalentProperty schema:nationality .
+
+ex:employedBy a owl:ObjectProperty ;
+    rdfs:label "employed by"@en ;
+    rdfs:domain foaf:Person ;
+    rdfs:range ex:ResearchInstitution ;
+    owl:equivalentProperty wdt:P108 ;
+    owl:equivalentProperty schema:worksFor .
+
+ex:notableWork a owl:ObjectProperty ;
+    rdfs:label "notable work"@en ;
+    rdfs:domain foaf:Person ;
+    owl:equivalentProperty wdt:P800 .
+
+# ---------------------------------------------------------------
+# SWRL Rule (documentation)
+# ---------------------------------------------------------------
+# Rule: If a person has occupation=scientist (Q901) AND has received an award,
+#       then infer they are an AwardedScientist.
+#
+# SWRL notation:
+#   Person(?p) ^ wdt:P106(?p, wd:Q901) ^ wdt:P166(?p, ?award) -> ex:AwardedScientist(?p)
+#
+# Implemented as SPARQL CONSTRUCT in Lab 5 (equivalent forward-chaining inference).
